@@ -12,7 +12,7 @@ namespace WpfApp6
 
         private void BtnProducts_Click(object sender, RoutedEventArgs e)
         {
-            //MainFrame.Navigate(new ProductsPage());
+            MainFrame.Navigate(new ProductsPage());
         }
 
         private void BtnStatistics_Click(object sender, RoutedEventArgs e)

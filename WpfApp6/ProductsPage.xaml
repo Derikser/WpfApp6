@@ -1,0 +1,50 @@
+﻿<Page x:Class="WpfApp6.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Управление товарами">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Форма добавления/редактирования -->
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <TextBlock Text="Добавить/Редактировать товар" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Название товара:"/>
+            <TextBox x:Name="TxtProductName" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Категория:"/>
+            <ComboBox x:Name="CmbCategory" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Цена:"/>
+            <TextBox x:Name="TxtPrice" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Количество:"/>
+            <TextBox x:Name="TxtQuantity" Margin="0,0,0,10"/>
+
+            <Button x:Name="BtnSave" Content="Сохранить" Click="BtnSave_Click" Width="100"/>
+        </StackPanel>
+
+        <!-- Список товаров -->
+        <DataGrid x:Name="ProductsGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Categories.CategoryName}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}"/>
+                <DataGridTemplateColumn Header="Действия">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Редактировать" Click="EditProduct_Click" Margin="0,0,5,0"/>
+                                <Button Content="Удалить" Click="DeleteProduct_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
