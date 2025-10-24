@@ -10,6 +10,7 @@
 namespace WpfApp6
 {
     using System;
+
     using System.Collections.Generic;
     
     public partial class Categories
